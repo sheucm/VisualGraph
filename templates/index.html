@@ -1,0 +1,137 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html> 
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity=
+        "sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" data-require="leaflet@0.7.3" data-semver="0.7.3" rel="stylesheet" />
+        <link rel="stylesheet" href="//leaflet.github.io/Leaflet.label/leaflet.label.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js" data-require="leaflet@0.7.3" data-semver="0.7.3"></script>
+        <script type="text/javascript" src="//leaflet.github.io/Leaflet.label/leaflet.label.js"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.2/jquery.ui.touch-punch.min.js"></script>
+        <script src="{% static "leafletembed.js" %}"></script>
+        <script src="{% static "index.js" %}"></script>
+        <script src="{% static "SliderControl.js" %}"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <style>
+            html,body{
+                height: 90%;
+                width: 100%; 
+            }
+            #content{
+                height: 100%;
+            }
+            #map { 
+                height:95%;
+                width:70%;
+                float: left;
+                margin-left: 2%;
+            } 
+            #description{
+                float: left;
+                height:500px;
+                width:25%;
+                padding-left: 2%;
+            }
+        </style>
+        <nav class="navbar navbar-default navbar-static-top">
+            <span class="navbar-brand" href="#">Spatial Optimal Query</span>
+        </nav>
+        
+        <div id="content">
+            <div id="map"></div>
+            <div id="description">
+               <div class="panel panel-danger">
+                  <div class="panel-heading">
+                    Number of nodes
+                    <input id="checkbox_RuleA" interval="20150910_20150920" class="mycheckbox" name="radio" type="text">
+                  </div>
+                  <div class="panel-body">
+                           Explaination
+                   </div>
+               </div>
+               <div class="panel panel-danger">
+                  <div class="panel-heading">
+                    Iteration
+                    <input id="checkbox_RuleA" interval="20150910_20150920" class="mycheckbox" name="radio" type="text">
+                  </div>
+                  <div class="panel-body">
+                           Explaination
+                   </div>
+               </div>
+               <div class="panel panel-danger">
+                  <div class="panel-heading">
+                      <div class="dropdown">
+                        Date Interval
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        OPTIONS
+                        <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                          <li><a href="#">0910~0920</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li><a href="#">0927~1003</a></li>
+                        </ul>
+                      </div>                    
+
+                  </div>
+                  <div class="panel-body">
+                           Explaination
+                   </div>
+               </div>
+               <div class="panel panel-danger">
+                  <div class="panel-heading">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <input type="checkbox" aria-label="...">
+                      </span>
+                      <input type="text" class="form-control" aria-label="..." value="gte>60"> 
+                    </div><!-- /input-group -->
+                  </div>
+                  <div class="panel-body">
+                           Explaination
+                   </div>
+               </div>
+               <div class="panel panel-danger">
+                  <div class="panel-heading">
+                      <div class="dropdown">
+                        Algorithm
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        OPTIONS
+                        <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                          <li><a href="#">Random Sample</a></li>
+                          <li><a href="#">Greedy</a></li>
+                          <li><a href="#">Montecarlo</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li><a href="#">Ant Colony</a></li>
+                        </ul>
+                      </div>                    
+
+                  </div>
+                  <div class="panel-body">
+                           Explaination
+                   </div>
+               </div>
+               <button id="submit" type="submit" class="btn btn-primary">Run</button>
+
+
+               
+            </div>
+        </div>
+        <div>
+
+        </div>
+        
+         
+        <script>
+        initmap();
+        </script>
+    </body>
+</html>
