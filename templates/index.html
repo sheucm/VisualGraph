@@ -28,15 +28,19 @@
             }
             #map { 
                 height:95%;
-                width:70%;
+                width:75%;
                 float: left;
                 margin-left: 2%;
             } 
             #description{
                 float: left;
                 height:500px;
-                width:25%;
+                width:20%;
                 padding-left: 2%;
+            }
+            .form-control{
+              width:50%;
+              display:-webkit-inline-box;
             }
         </style>
         <nav class="navbar navbar-default navbar-static-top">
@@ -48,28 +52,22 @@
             <div id="description">
                <div class="panel panel-danger">
                   <div class="panel-heading">
-                    Number of nodes
-                    <input id="checkbox_RuleA" interval="20150910_20150920" class="mycheckbox" name="radio" type="text">
+                    Number of blocks
+                    <input id="number_of_blocks" interval="20150910_20150920" class="form-control" name="radio" type="text" value="5">
                   </div>
-                  <div class="panel-body">
-                           Explaination
-                   </div>
                </div>
                <div class="panel panel-danger">
                   <div class="panel-heading">
                     Iteration
-                    <input id="checkbox_RuleA" interval="20150910_20150920" class="mycheckbox" name="radio" type="text">
+                    <input id="iteration" interval="20150910_20150920" class="mycheckbox" name="radio" type="text" value="10">
                   </div>
-                  <div class="panel-body">
-                           Explaination
-                   </div>
                </div>
                <div class="panel panel-danger">
                   <div class="panel-heading">
                       <div class="dropdown">
                         Date Interval
-                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        OPTIONS
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" drop-value="0927~1003">
+                        0927~1003
                         <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -80,29 +78,23 @@
                       </div>                    
 
                   </div>
-                  <div class="panel-body">
-                           Explaination
-                   </div>
                </div>
                <div class="panel panel-danger">
                   <div class="panel-heading">
                     <div class="input-group">
                       <span class="input-group-addon">
-                        <input type="checkbox" aria-label="...">
+                        <input type="checkbox" id="gte60-checkbox" aria-label="...">
                       </span>
                       <input type="text" class="form-control" aria-label="..." value="gte>60"> 
                     </div><!-- /input-group -->
                   </div>
-                  <div class="panel-body">
-                           Explaination
-                   </div>
                </div>
                <div class="panel panel-danger">
                   <div class="panel-heading">
                       <div class="dropdown">
                         Algorithm
-                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        OPTIONS
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" drop-value="Montecarlo">
+                        Montecarlo
                         <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -115,13 +107,19 @@
                       </div>                    
 
                   </div>
-                  <div class="panel-body">
-                           Explaination
-                   </div>
                </div>
                <button id="submit" type="submit" class="btn btn-primary">Run</button>
-
-
+               <button id="clear" type="submit" class="btn btn-default">Clear Area</button>
+              <div class="panel panel-danger">
+                  <div class="panel-heading">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <input type="checkbox" id="neighbors-checkbox" aria-label="...">
+                      </span>
+                      <input type="text" class="form-control" aria-label="..." value="Neighbors"> 
+                    </div><!-- /input-group -->
+                  </div>
+               </div>
                
             </div>
         </div>

@@ -17,8 +17,8 @@ function initmap() {
 
     //Get points
     var submit_data = {
-            "date1": '20150910', 
-            "date2": '20150920', 
+            "date1": '20150927', 
+            "date2": '20151003', 
             "gte60": 'f', 
         };
     $.ajax({
@@ -34,40 +34,10 @@ function initmap() {
     });
 
 
-
-    //Get SSB
-    $.ajax({
-        type: "GET",
-        url: '/visual/get_SSB/',
-    })
-    .done(function(geojsonFeature) {
-        alert("成功"); 
-        console.log(geojsonFeature)
-        var geoJsonLayers = L.geoJson(geojsonFeature, {
-            onEachFeature: function (feature, layer) {
-                label = layer.bindLabel(""+feature.properties.ogc_fid, { noHide: true });
-            }
-        }).addTo(map);
     
-
-        // Show all labels in default
-        features = geojsonFeature.features
-        var label_list = []
-        for (i=0; i<features.length; i++){
-            lng = features[i].properties.centroid.lng
-            lat = features[i].properties.centroid.lat
-            label = new L.Label()
-            label.setContent(""+features[i].properties.ogc_fid)
-            label.setLatLng(L.latLng(lat, lng))
-            map.showLabel(label);
-        }
-
-
-    })
-    .fail(function() {
-        alert("失敗");
-    });
+    
 }
+
 
 
 function addPoints(rows){

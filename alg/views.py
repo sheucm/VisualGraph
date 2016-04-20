@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseForbidden
-import os
-import psycopg2
+from django.core.serializers.json import DjangoJSONEncoder
 from alg.alg.greedy import Greedy
 from alg.alg.mon import Montecarlo
 from alg.alg.ran import Random
-import timeit
 from random import randint
+import timeit
+import os
+import psycopg2
+import json
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -17,7 +19,7 @@ def __pg_connect():
 		conn = psycopg2.connect(cfile.read())
 	return conn
 
-def randomSample(request):
+def algorithm(request):
 	if request.method != 'GET':
 		return HttpResponse(status=400)
 
@@ -64,8 +66,11 @@ def randomSample(request):
 	runtime = stop-start
 	print ('Runtime: {0} seconds'.format(runtime))
 
+	# 1-Neighbors 2-Neighbors
+	neighbors1 = aOb.neighbors(max_area)
+	neighbors2 = aOb.neighbors(max_area + neighbors1)
+
+	response = dict({"max_area": max_area, "neighbors1":neighbors1, "neighbors2":neighbors2})
+	return HttpResponse(json.dumps(response,cls=DjangoJSONEncoder), status=200, content_type='application/json')
 
 
-
-
-	return HttpResponse(status=200)
