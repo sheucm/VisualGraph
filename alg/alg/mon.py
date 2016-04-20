@@ -48,7 +48,7 @@ class Montecarlo:
 
 	def generate_area(self, seed, MAX_NODES):
 		area = [seed]
-		while len(area) <= MAX_NODES :	
+		while len(area) < MAX_NODES :	
 			neigs = self.neighbors(area)
 			if len(neigs) == 0:
 				break
